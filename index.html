@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Akilesh & Rakshantha — Wedding</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 85 C50 85 15 60 15 35 C15 20 27 10 40 15 C44 17 48 21 50 25 C52 21 56 17 60 15 C73 10 85 20 85 35 C85 60 50 85 50 85Z' fill='%23e8b84b'/></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Great+Vibes&family=Unbounded:wght@700;900&display=swap" rel="stylesheet"/>
@@ -75,21 +76,15 @@ nav.scrolled{
   pointer-events:none;
 }
 
-/* SVG layers — cover-style so images always fill on any screen size */
+/* SVG layers */
 .svgl{
-  display:block;
-  position:absolute;
-  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .svgl img{
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  /* cover: whichever axis is limiting, use 100% of it */
-  min-width:100%;
-  min-height:100%;
+  height:124%;        /* taller than container so bleed never shows */
   width:auto;
-  height:auto;
   display:block;
   user-select:none;
   -webkit-user-drag:none;
@@ -324,17 +319,10 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
 .footer-links a{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,232,208,.22);text-decoration:none;transition:color .3s}
 .footer-links a:hover{color:var(--gold)}
 .footer-copy{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,232,208,.16)}
-.footer-brand{
-  display:flex;align-items:center;gap:8px;
-  margin-top:8px;
-  padding-top:16px;
-  border-top:1px solid rgba(232,184,75,.07);
-  width:100%;justify-content:center;
-}
-.footer-brand-by{font-size:9px;letter-spacing:.2em;color:rgba(245,232,208,.2);text-transform:lowercase}
-.footer-brand-logo{height:22px;width:auto;opacity:.55;filter:brightness(1.1);transition:opacity .3s;border-radius:6px}
-.footer-brand-logo:hover{opacity:.85}
-.footer-brand-name{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,232,208,.3);font-weight:400}
+.footer-brand{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px;opacity:.45;transition:opacity .3s}
+.footer-brand:hover{opacity:.7}
+.footer-brand img{width:48px;height:48px;object-fit:contain;border-radius:12px;border:1px solid rgba(232,184,75,.2);background:rgba(255,255,255,.04);padding:6px}
+.footer-brand-label{font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,232,208,.3)}
 
 /* reveal */
 .rev  {opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
@@ -418,8 +406,6 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
   .map-inner{flex-direction:column;align-items:center}
   .map-text{align-items:center;text-align:center}
   .name-top,.name-bot{white-space:normal;text-align:center}
-  /* more bleed room on mobile so parallax never shows edge */
-  .px{ top:-20%; bottom:-20%; }
 }
 </style>
 </head>
@@ -428,7 +414,6 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
 <canvas id="particles"></canvas>
 
 <nav id="nav">
-  <span class="nav-logo">A &amp; R</span>
   <ul class="nav-links">
     <li><a href="#details">Details</a></li>
     <li><a href="#programme">Programme</a></li>
@@ -444,17 +429,17 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
 <section class="hero" id="hero">
 
   <!-- SVG layer 1 — base background (slowest) -->
-  <div class="px svgl l1"  data-px="0.04"><img src="1.svg"  alt=""/></div>
+  <div class="px svgl l1"  data-px="0.04"><img src="./assets/1.svg"  alt=""/></div>
   <!-- SVG layer 4 -->
-  <div class="px svgl l4"  data-px="0.10"><img src="4.svg"  alt=""/></div>
+  <div class="px svgl l4"  data-px="0.10"><img src="./assets/4.svg"  alt=""/></div>
   <!-- SVG layers 6-12 -->
-  <div class="px svgl l6"  data-px="0.16"><img src="6.svg"  alt=""/></div>
-  <div class="px svgl l7"  data-px="0.21"><img src="7.svg"  alt=""/></div>
-  <div class="px svgl l8"  data-px="0.26"><img src="8.svg"  alt=""/></div>
-  <div class="px svgl l9"  data-px="0.31"><img src="9.svg"  alt=""/></div>
-  <div class="px svgl l10" data-px="0.36"><img src="10.svg" alt=""/></div>
-  <div class="px svgl l11" data-px="0.41"><img src="11.svg" alt=""/></div>
-  <div class="px svgl l12" data-px="0.47"><img src="12.svg" alt=""/></div>
+  <div class="px svgl l6"  data-px="0.16"><img src="./assets/6.svg"  alt=""/></div>
+  <div class="px svgl l7"  data-px="0.21"><img src="./assets/7.svg"  alt=""/></div>
+  <div class="px svgl l8"  data-px="0.26"><img src="./assets/8.svg"  alt=""/></div>
+  <div class="px svgl l9"  data-px="0.31"><img src="./assets/9.svg"  alt=""/></div>
+  <div class="px svgl l10" data-px="0.36"><img src="./assets/10.svg" alt=""/></div>
+  <div class="px svgl l11" data-px="0.41"><img src="./assets/11.svg" alt=""/></div>
+  <div class="px svgl l12" data-px="0.47"><img src="./assets/12.svg" alt=""/></div>
 
   <!-- warm colour vignette -->
   <div class="vignette"></div>
@@ -558,7 +543,7 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
       <p class="d-tag" style="margin-bottom:14px">Find Us</p>
       <h2 class="section-h" style="text-align:left">Sundaram <em>Mahal</em></h2>
       <p class="map-addr">Theni, Tamil Nadu</p>
-      <a class="map-btn" href="https://share.google/VQcteEfrOQ8nuyE6x" target="_blank" rel="noopener">
+      <a class="map-btn" href="https://share.google/waQn08sqc2reHlERB" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         Get Directions
       </a>
@@ -611,15 +596,14 @@ footer{padding:52px 6vw;border-top:1px solid rgba(232,184,75,.09);display:flex;f
     <a href="#">Home</a><a href="#details">Details</a><a href="#map">Location</a>
   </div>
   <p class="footer-copy">With Love · 24 &amp; 25 May 2026 · Theni, Tamil Nadu</p>
-  <div class="footer-brand">
-    <img src="logo.png" alt="Techedilte" class="footer-brand-logo"/>
-    <span class="footer-brand-name">Techedilte</span>
-  </div>
+  <a class="footer-brand" href="https://www.techedilite.co/" target="_blank" rel="noopener">
+    <img src="./assets/logo.png" alt="TechEdilite"/>
+    <span class="footer-brand-label">TechEdilite</span>
+  </a>
 </footer>
 
-
 <!-- sticky directions button -->
-<a class="sticky-map-btn" href="https://share.google/VQcteEfrOQ8nuyE6x" target="_blank" rel="noopener" id="stickyBtn">
+<a class="sticky-map-btn" href="https://share.google/waQn08sqc2reHlERB" target="_blank" rel="noopener" id="stickyBtn">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
   Directions
 </a>
@@ -663,12 +647,11 @@ const band   = document.querySelector('.quote-band');
 
 function applyParallax(){
   const sy = scrollY;
-  // halve the effect on narrow screens so layers never drift out of view
-  const m = window.innerWidth < 700 ? 0.35 : 1;
 
+  // Hero layers: each shifts up as you scroll (closer = faster)
   heroPx.forEach(el=>{
     const spd = parseFloat(el.dataset.px);
-    el.style.transform = `translateY(${sy * spd * m}px)`;
+    el.style.transform = `translateY(${sy * spd}px)`;
   });
 
   // Quote-band: offset relative to band centre
@@ -690,10 +673,9 @@ const stickyBtn=document.getElementById('stickyBtn');
 const mapSection=document.getElementById('map');
 addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled',scrollY>60);
-  const mapTop=mapSection.getBoundingClientRect().top;
-  const pastHero=scrollY>window.innerHeight*.6;
-  const atMap=mapTop<=window.innerHeight*.75;
-  stickyBtn.classList.toggle('show', pastHero && !atMap);
+  const mapRect=mapSection.getBoundingClientRect();
+  const nearMap=mapRect.top<window.innerHeight*.8&&mapRect.bottom>0;
+  stickyBtn.classList.toggle('show',scrollY>window.innerHeight*.6&&!nearMap);
 },{passive:true});
 
 /* ── scroll reveal ───────────────────────────────────────────────── */
